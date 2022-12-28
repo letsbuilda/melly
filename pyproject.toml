@@ -1,0 +1,58 @@
+[project]
+name = "melly"
+version = "0.1.0"
+description = "Python DSL for quick dogulations"
+authors = [
+    { name = "Bradley Reynolds", email = "bradley.reynolds@darbia.dev" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+
+]
+
+[project.urls]
+repository = "https://github.com/letsbuilda/melly/"
+documentation = "https://projects.letsbuilda.dev/melly/"
+
+[project.optional-dependencies]
+dev = [
+    "pylint",
+    "pytest",
+    "pytest-cov",
+    "black",
+    "isort",
+]
+tests = [
+    "pytest",
+]
+docs = [
+    "sphinx",
+    "sphinxcontrib-autoprogram",
+    "sphinx-rtd-theme",
+    "toml;python_version<'3.11'",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.sphinx]
+copyright = "Let's Build A ..."
+author = "Bradley Reynolds"
+api_dir = "src/melly"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "tests -r a -v --doctest-modules src"
+
+[tool.pylint.format]
+max-line-length = 120
+good-names = ["it"]
