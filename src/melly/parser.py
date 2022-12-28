@@ -10,8 +10,8 @@ FUNCTIONS: dict[str, Callable] = {"uuid": uuid4}
 def _parse_python(text: str) -> Any:
     """Attempt to parse and execute input as Python"""
     try:
-        output = eval(compile(text, "<string>", "eval"))
-    except Exception as exception:
+        output = eval(compile(text, "<string>", "eval"))  # pylint: disable=eval-used
+    except Exception as exception:  # pylint: disable=broad-except
         output = f"{exception=}"
     return output
 
